@@ -1,44 +1,11 @@
 import {Grid, Typography} from "@mui/material";
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
-import { useEffect, useState } from "react";
-import { BASE_URL } from "../config.js";
-import axios from "axios";
 
 
-export const Landing = () => {
+
+export const Landing = ({userEmail}) => {
     const navigate = useNavigate()
-
-    const [userEmail, setUserEmail] = useState(null);
-    
-
-    const init = async() => {
-        const token = localStorage.getItem("token")
-        
-        console.log(token);
-        if(token && token !== "null"){
-            const response = await axios.get(`${BASE_URL}/admin/me`, {
-                headers: {
-                    "Authorization": "Bearer " + token
-                }
-            })
-    
-            if (response.data.username) {
-                setUserEmail(response.data.username)
-            }
-
-        }
-        
-    };
-
-    useEffect(() => {
-       init();
-    }, []);
-
-    console.log(userEmail);
-
-
-
     return <div>
         <Grid container style={{padding: "5vw"}}>
             <Grid item xs={12} md={6} lg={6}>
