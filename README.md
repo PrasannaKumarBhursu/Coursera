@@ -29,6 +29,7 @@ cd customer && npm install && cd ../admin && npm install && cd ../server && npm 
 
 ```
 2.Change MongoConnection  :
+
 For checking purpose Either u can use my hardcoded Mongo Connection or u can replace with your one in server/index.js file .
 
 ```bash
